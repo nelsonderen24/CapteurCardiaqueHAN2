@@ -15,9 +15,9 @@ typedef struct Liste {
   struct RythmeC* dernier;
 } Liste;
 
-RythmeC creerRythmeC(int pouls, int temps);
-Liste creerListe(RythmeC* rythmeC);
-void enfiler(Liste* liste, RythmeC rythmeC);
+RythmeC* creerRythmeC(int pouls, int temps);
+Liste* creerListe(RythmeC* rythmeC);
+void enfiler(Liste* liste, RythmeC* rythmeC);
 void defiler(Liste* liste);
 
 
