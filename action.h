@@ -3,6 +3,9 @@
 #ifndef ACTION_H_INCLUDED
 #define ACTION_H_INCLUDED
 
-
+void afficherTempsChoisi(Liste *liste,tempsDebut,tempsFin);
+void afficherMoyenneTempsChoisi(Liste *liste,tempsDebut,tempsFin);
+void afficherNombresDeDonneesStockes(Liste *liste);
+int calculeNombresDeDonneesStockes(Liste *liste);
 
 #endif // ACTION_H_INCLUDED
