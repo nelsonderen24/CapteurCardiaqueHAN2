@@ -2,6 +2,24 @@
 #include "donnee.h"
 #include "action.h"
 
+
+
+Liste* lectureCSV(){
+  FILE* fichier = fopen("battements.csv", "r");
+  char caractereCSV = '0';
+  int pouls = 0;
+  int temps =0;
+  fscanf(fichier, "%d;%d", &temps, &pouls);
+  Liste* liste = creerListe(creerRythmeC(pouls, temps));
+
+  while (caractereCSV != EOF) {
+    caractereCSV = fgetc(fichier);
+    fscanf(fichier, "%d;%d", &temps, &pouls);
+    enfiler(liste, creerRythmeC(pouls, temps));
+  }
+  return liste;
+}
+
 RythmeC* creerRythmeC(int pouls, int temps){
     RythmeC* rythmeC = malloc(sizeof(*rythmeC));
     rythmeC->pouls = pouls;

@@ -20,5 +20,7 @@ Liste* creerListe(RythmeC* rythmeC);
 void enfiler(Liste* liste, RythmeC* rythmeC);
 void defiler(Liste* liste);
 
+Liste* lectureCSV();
 
 #endif // DONNEE_H_INCLUDED
+
