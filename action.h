@@ -19,5 +19,10 @@ void afficherNombresDeDonneesStockes(Liste *liste);
 void afficherPoulsMax(Liste* liste);
 void afficherPoulsMin(Liste* liste);
 
+void afficherMaxMin(Liste* liste);
+void afficherTempsChoisi(Liste *liste,tempsDebut,tempsFin);
+void afficherMoyenneTempsChoisi(Liste *liste,tempsDebut,tempsFin);
+void afficherNombresDeDonneesStockes(Liste *liste);
+int calculeNombresDeDonneesStockes(Liste *liste);
 
 #endif // ACTION_H_INCLUDED
