@@ -19,6 +19,7 @@ void afficherOrdreDecroissantTemps(Liste* liste){
   }
 }
 
+/*
 void triInsertion(Liste* liste){
   RythmeC* rythmeC = liste->premier;
   while ((rythmeC->precedent) != NULL){

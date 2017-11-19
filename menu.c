@@ -2,7 +2,7 @@
 #include "donnee.h"
 #include "action.h"
 
-void choisirAffichageMenu(){
+void choisirAffichageMenu(Liste* liste){
 
   int x = 0;
   int tempsDebut = 0, tempsFin = 0;
@@ -14,8 +14,7 @@ void choisirAffichageMenu(){
           " 5  : Rechercher sur un temps choisi\n"
           " 6  : Moyenne du pouls sur un temps choisi\n"
           " 7  : Nombre de lignes de donnees en memoire\n"
-          " 8  : Rechercher pouls maximum\n"
-          " 9  : Rechercher pouls minimum\n"
+          " 8  : Rechercher pouls maximum et minimum\n"
           " 0  : Quitter\n\n");
 
   scanf("%d",&x);
@@ -34,29 +33,27 @@ void choisirAffichageMenu(){
   break;
   case 4:
   //ordre du decroissant selon pouls
-    printf("Temps debut");
-    scanf("%d",&tempsDebut);
-    printf("Temps fin");
-    scanf("%d",&tempsFin);
+
   break;
   case 5:
     printf("Temps debut");
     scanf("%d",&tempsDebut);
     printf("Temps fin");
     scanf("%d",&tempsFin);
-  //pouls sur un temps choisi
+    afficherTempsChoisi(Liste *liste, tempsDebut, tempsFin);
   break;
   case 6:
-  //moyenne des pouls sur temps choisi
+    printf("Temps debut");
+    scanf("%d",&tempsDebut);
+    printf("Temps fin");
+    scanf("%d",&tempsFin);
+    afficherMoyenneTempsChoisi(Liste *liste, tempsDebut, tempsFin);
   break;
   case 7:
-  //nombre dedonnés stockés
+    afficherNombresDeDonneesStockes(Liste *liste);
   break;
   case 8:
-  //pouls max
-  break;
-  case 9:
-  //pouls min
+    afficherMaxMin(Liste* liste);
   break;
   }
 }
