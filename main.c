@@ -6,6 +6,6 @@
 
 int main()
 {
-  Liste* liste = lectureCSV()
+  Liste* liste = lectureCSV();
   choisirAffichageMenu(liste);
 }

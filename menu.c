@@ -23,10 +23,10 @@ void choisirAffichageMenu(Liste* liste){
   case 0:
   break;
   case 1:
-    afficherOrdreCroissantTemps(Liste* liste);
+    afficherOrdreCroissantTemps(liste);
   break;
   case 2:
-    afficherOrdreDecroissantTemps(Liste* liste);
+    afficherOrdreDecroissantTemps(liste);
   break;
   case 3:
   //ordre du croissant selon pouls
@@ -36,24 +36,24 @@ void choisirAffichageMenu(Liste* liste){
 
   break;
   case 5:
-    printf("Temps debut");
+    printf("Temps debut: ");
     scanf("%d",&tempsDebut);
-    printf("Temps fin");
+    printf("Temps fin: ");
     scanf("%d",&tempsFin);
-    afficherTempsChoisi(Liste *liste, tempsDebut, tempsFin);
+    afficherTempsChoisi(liste,tempsDebut,tempsFin);
   break;
   case 6:
-    printf("Temps debut");
+    printf("Temps debut: ");
     scanf("%d",&tempsDebut);
-    printf("Temps fin");
+    printf("Temps fin: ");
     scanf("%d",&tempsFin);
-    afficherMoyenneTempsChoisi(Liste *liste, tempsDebut, tempsFin);
+    afficherMoyenneTempsChoisi(liste, tempsDebut, tempsFin);
   break;
   case 7:
-    afficherNombresDeDonneesStockes(Liste *liste);
+    afficherNombresDeDonneesStockees(liste);
   break;
   case 8:
-    afficherMaxMin(Liste* liste);
+    afficherMaxMin(liste);
   break;
   }
 }

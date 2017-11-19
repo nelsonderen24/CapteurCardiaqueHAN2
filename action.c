@@ -6,7 +6,7 @@
 void afficherOrdreCroissantTemps(Liste* liste){
   RythmeC* rythmeC = liste->premier;
   while((rythmeC->suivant) != NULL){
-    printf("%d / %d", rythmeC->temps, rythmeC->pouls);
+    printf("%d / %d\n", rythmeC->temps, rythmeC->pouls);
     rythmeC = rythmeC->suivant;
   }
 }
@@ -14,7 +14,7 @@ void afficherOrdreCroissantTemps(Liste* liste){
 void afficherOrdreDecroissantTemps(Liste* liste){
   RythmeC* rythmeC = liste->dernier;
   while((rythmeC->precedent) != NULL){
-    printf("%d / %d", rythmeC->temps, rythmeC->pouls);
+    printf("%d / %d\n", rythmeC->temps, rythmeC->pouls);
     rythmeC = rythmeC->precedent;
   }
 }
@@ -35,7 +35,7 @@ void triInsertion(Liste* liste){
 }
 */
 
-int convertisseurListeEnTab(Liste* liste){
+/*int convertisseurListeEnTab(Liste* liste){
   int tab[1000][2];
   RythmeC* rythmeC = liste->premier;
   int i = 0;
@@ -46,9 +46,9 @@ int convertisseurListeEnTab(Liste* liste){
     rythmeC = rythmeC->precedent;
   }
   return tab;
-}
+}*/
 
-void tri_insertion(int tab[][], int taille){
+/*void tri_insertion(int tab, int taille){
    int i, j;
    for (i = 1; i < taille; ++i) {
        int elemPouls = tab[i][0];
@@ -58,13 +58,13 @@ void tri_insertion(int tab[][], int taille){
            tab[j][1] = tab[j-1][1];
        tab[j][0] = elemPouls;
        tab[j][1] = elemTemps;
-   }
+   }*/
 
-void afficherTempsChoisi(Liste *liste,tempsDebut,tempsFin) {
+void afficherTempsChoisi(Liste* liste,int tempsDebut,int tempsFin) {
     RythmeC* rythmeC= liste->premier;
     int pouls = 0;
     int temps = 0;
-    while (rythmeC->temps <= tempsFin) {
+    while (rythmeC->temps <= tempsFin && rythmeC->suivant != NULL) {
         if (rythmeC->temps >= tempsDebut) {
             pouls = rythmeC->pouls;
             temps = rythmeC->temps;
@@ -74,16 +74,14 @@ void afficherTempsChoisi(Liste *liste,tempsDebut,tempsFin) {
     }
 
 }
-void afficherMoyenneTempsChoisi(Liste *liste,tempsDebut,tempsFin) {
+void afficherMoyenneTempsChoisi(Liste* liste,int tempsDebut,int tempsFin) {
     RythmeC* rythmeC= liste->premier;
     int pouls = 0;
-    int temps = 0;
     int x = 0;
     int y = 0;
-    while (rythmeC->temps <= tempsFin) {
+    while (rythmeC->temps <= tempsFin && rythmeC->suivant != NULL) {
         if (rythmeC->temps >= tempsDebut) {
             pouls = rythmeC->pouls;
-            temps = rythmeC->temps;
             x = x + pouls;
             y++;
         }
@@ -92,12 +90,12 @@ void afficherMoyenneTempsChoisi(Liste *liste,tempsDebut,tempsFin) {
     float moyenne = x/y;
     printf("La moyenne du pouls dans la plage de temps donnee est de : %f", moyenne);
 }
-void afficherNombresDeDonneesStockes(Liste *liste){
-    int compteur = calculeNombresDeDonneesStockes(Liste *liste);
+void afficherNombresDeDonneesStockees(Liste* liste){
+    int compteur = calculerNombresDeDonneesStockees(liste);
     printf("Il y %d lignes de donnees actuellement en memoire", compteur);
 }
 
-int calculeNombresDeDonneesStockes(Liste *liste){
+int calculerNombresDeDonneesStockees(Liste* liste){
     int compteur = 0;
     RythmeC* rythmeC= liste->premier;
     while (rythmeC->suivant != NULL) {
@@ -105,6 +103,7 @@ int calculeNombresDeDonneesStockes(Liste *liste){
         rythmeC= rythmeC->suivant;
     }
     return compteur;
+}
 
 void afficherMaxMin(Liste* liste) {
   RythmeC* rythmeC = liste->premier;
@@ -125,3 +124,4 @@ void afficherMaxMin(Liste* liste) {
   }
   printf("Valeur du poulsMax/temps : %d / %d\nValeur du poulsMin/temps : %d / %d\n", poulsMax, tempsMax, poulsMin, tempsMin);
 }
+

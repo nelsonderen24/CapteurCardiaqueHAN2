@@ -5,24 +5,15 @@
 #include <stdlib.h>
 
 int convertisseurListeEnTab(Liste* liste);
-void tri_insertion(int tab[][], int taille);
-
-//int triInsertion(Liste* liste, tailleListe);
-
+void tri_insertion(int tab, int taille);
 void afficherOrdreCroissantTemps(Liste* liste);
 void afficherOrdreDecroissantTemps(Liste* liste);
 void afficherOrdreCroissantPouls(Liste* liste);
 void afficherOrdreDecroissantPouls(Liste* liste);
-void afficherTempsChoisi(Liste *liste,tempsDebut,tempsFin);
-void afficherMoyenneTempsChoisi(Liste *liste,tempsDebut,tempsFin);
-void afficherNombresDeDonneesStockes(Liste *liste);
-void afficherPoulsMax(Liste* liste);
-void afficherPoulsMin(Liste* liste);
-
+void afficherTempsChoisi(Liste *liste,int tempsDebut,int tempsFin);
+void afficherMoyenneTempsChoisi(Liste *liste,int tempsDebut,int tempsFin);
+void afficherNombresDeDonneesStockees(Liste* liste);
+int calculerNombresDeDonneesStockees(Liste* liste);
 void afficherMaxMin(Liste* liste);
-void afficherTempsChoisi(Liste *liste,tempsDebut,tempsFin);
-void afficherMoyenneTempsChoisi(Liste *liste,tempsDebut,tempsFin);
-void afficherNombresDeDonneesStockes(Liste *liste);
-int calculeNombresDeDonneesStockes(Liste *liste);
 
 #endif // ACTION_H_INCLUDED
