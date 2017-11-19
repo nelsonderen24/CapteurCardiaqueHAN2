@@ -1,7 +1,7 @@
 #include "menu.h"
 #include "donnee.h"
 #include "action.h"
-
+#define tailleTableau 200
 
 void afficherOrdreCroissantTemps(Liste* liste){
   RythmeC* rythmeC = liste->premier;
@@ -10,7 +10,6 @@ void afficherOrdreCroissantTemps(Liste* liste){
     rythmeC = rythmeC->suivant;
   }
 }
-
 void afficherOrdreDecroissantTemps(Liste* liste){
   RythmeC* rythmeC = liste->dernier;
   while((rythmeC->precedent) != NULL){
@@ -19,46 +18,59 @@ void afficherOrdreDecroissantTemps(Liste* liste){
   }
 }
 
-/*
-void triInsertion(Liste* liste){
-  RythmeC* rythmeC = liste->premier;
-  while ((rythmeC->precedent) != NULL){
-    RythmeC* rythmeC_precedent = rythmeC->precedent;
-    int elem = rythmeC->pouls;
-    int elemPrecedent = rythmeC_precedent->pouls;
-    while(((rythmeC_Bis->precedent) != NULL) && (elemPrecedent > elem)){
-      rythmeC = rythmeC->precedent;
-    }
-    rythmeC = rythmeC_precedent;
-    rythmeC = rythmeC->suivant;
-  }
-}
-*/
-
-/*int convertisseurListeEnTab(Liste* liste){
-  int tab[1000][2];
+void afficherTableauCreeCroissant(Liste* liste, int taille){
+  int tab[tailleTableau];
   RythmeC* rythmeC = liste->premier;
   int i = 0;
   while((rythmeC->suivant) != NULL){
-    tab[i][0] = rythmeC->pouls;
-    tab[i][1] = rythmeC->temps;
-    i++;
-    rythmeC = rythmeC->precedent;
+    tab[i] = rythmeC->pouls;
+    tab[i+1] = rythmeC->temps;
+    i = i+2;
+    rythmeC = rythmeC->suivant;
   }
-  return tab;
-}*/
+  affichageTriInsertionCroissant(tab, taille);
+}
+void  affichageTriInsertionCroissant(int* p, int taille){
+  int i, j;
+  for (i = 2; i < (taille*2) ; i = i+2) {
+       int elemPouls = p[i];
+       int elemTemps = p[i+1];
+       for (j = i; j > 0 && p[j-2] > elemPouls; j = j-2){
+           p[j] = p[j-2];
+           p[j+1] = p[j-1];
+   }
+   p[j] = elemPouls;
+   p[j+1] = elemTemps;
+  }
+  for(int i = 0; i < taille*2; i = i+2) printf("%d / %d\n ", p[i], p[i+1]);
+}
 
-/*void tri_insertion(int tab, int taille){
-   int i, j;
-   for (i = 1; i < taille; ++i) {
-       int elemPouls = tab[i][0];
-       int elemTemps = tab[i][1];
-       for (j = i; j > 0 && tab[j-1][0] > elemPouls; j--)
-           tab[j][0] = tab[j-1][0];
-           tab[j][1] = tab[j-1][1];
-       tab[j][0] = elemPouls;
-       tab[j][1] = elemTemps;
-   }*/
+void afficherTableauCreeDecroissant(Liste* liste, int taille){
+  int tab[tailleTableau];
+  RythmeC* rythmeC = liste->premier;
+  int i = 0;
+  while((rythmeC->suivant) != NULL){
+    tab[i] = rythmeC->pouls;
+    tab[i+1] = rythmeC->temps;
+    i = i+2;
+    rythmeC = rythmeC->suivant;
+  }
+  affichageTriInsertiondDecroissant(tab, taille);
+}
+void affichageTriInsertiondDecroissant(int* p, int taille){
+  int i, j;
+  for (i = 2; i < (taille*2) ; i = i+2) {
+       int elemPouls = p[i];
+       int elemTemps = p[i+1];
+       for (j = i; j > 0 && p[j-2] > elemPouls; j = j-2){
+           p[j] = p[j-2];
+           p[j+1] = p[j-1];
+   }
+   p[j] = elemPouls;
+   p[j+1] = elemTemps;
+  }
+  for(int i = (taille*2)-1; i > 0; i = i-2) printf("%d / %d\n", p[i-1], p[i]);
+}
 
 void afficherTempsChoisi(Liste* liste,int tempsDebut,int tempsFin) {
     RythmeC* rythmeC= liste->premier;
@@ -72,7 +84,6 @@ void afficherTempsChoisi(Liste* liste,int tempsDebut,int tempsFin) {
         }
         rythmeC= rythmeC->suivant;
     }
-
 }
 void afficherMoyenneTempsChoisi(Liste* liste,int tempsDebut,int tempsFin) {
     RythmeC* rythmeC= liste->premier;

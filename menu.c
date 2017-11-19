@@ -29,11 +29,10 @@ void choisirAffichageMenu(Liste* liste){
     afficherOrdreDecroissantTemps(liste);
   break;
   case 3:
-  //ordre du croissant selon pouls
+    afficherTableauCreeCroissant(liste, calculerNombresDeDonneesStockees(liste));
   break;
   case 4:
-  //ordre du decroissant selon pouls
-
+    afficherTableauCreeDecroissant(liste, calculerNombresDeDonneesStockees(liste));
   break;
   case 5:
     printf("Temps debut: ");
