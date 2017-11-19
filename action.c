@@ -47,8 +47,8 @@ int calculeNombresDeDonneesStockes(Liste *liste){
         rythmeC= rythmeC->suivant;
     }
     return compteur;
-    
-afficherMaxMin(Liste* liste) {
+
+void afficherMaxMin(Liste* liste) {
   RythmeC* rythmeC = liste->premier;
   int poulsMax = rythmeC->pouls;
   int tempsMax = rythmeC->temps;
@@ -66,5 +66,4 @@ afficherMaxMin(Liste* liste) {
     }
   }
   printf("Valeur du poulsMax/temps : %d / %d\nValeur du poulsMin/temps : %d / %d\n", poulsMax, tempsMax, poulsMin, tempsMin);
-
 }
