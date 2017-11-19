@@ -21,8 +21,8 @@ Liste *creerListe(RythmeC* rythmeC){
 void enfiler(Liste* liste, RythmeC* rythmeC){
   rythmeC->precedent = liste->dernier;
   rythmeC->suivant = NULL;
-  liste->dernier->suivant=rythmeC;
-  liste->dernier=rythmeC;
+  liste->dernier->suivant = rythmeC;
+  liste->dernier = rythmeC;
 }
 
 void defiler(Liste* liste){
