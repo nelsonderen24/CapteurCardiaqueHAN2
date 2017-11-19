@@ -55,5 +55,8 @@ void choisirAffichageMenu(Liste* liste){
   case 8:
     afficherMaxMin(liste);
   break;
+  default:
+    printf("entree non valide");
+  break;
   }
 }

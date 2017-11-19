@@ -2,8 +2,6 @@
 #include "donnee.h"
 #include "action.h"
 
-
-
 Liste* lectureCSV(){
   FILE* fichier = fopen("battements.csv", "r");
   char caractereCSV = '0';
